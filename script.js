@@ -244,17 +244,3 @@ function toggleMusic() {
     }
     isPlaying = !isPlaying; // Toggle the play/pause state
 }
-// Toggle the navbar visibility on small screens
-function toggleNavbar() {
-    const navbarMenu = document.getElementById("navbarMenu");
-    navbarMenu.style.display = navbarMenu.style.display === "block" ? "none" : "block";
-}
-
-// Close the navbar when a nav item is clicked (on small screens)
-function closeNavbar() {
-    const navbarMenu = document.getElementById("navbarMenu");
-    navbarMenu.style.display = "none";
-}
-
-// Add event listener for the hamburger icon to toggle the navbar
-document.getElementById("navbarToggle").addEventListener("click", toggleNavbar);
