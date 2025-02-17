@@ -146,8 +146,8 @@ function startGame() {
     document.getElementById("score").innerText = "Score: 0";
     basket = document.getElementById("basket");
 
-    // Move basket with keyboard
-    document.addEventListener("keydown", moveBasket);
+    // Add event listeners for touch controls
+    document.addEventListener("touchmove", moveBasketTouch);
 
     // Start dropping gifts
     gameInterval = setInterval(dropGift, 1000);
@@ -156,14 +156,20 @@ function startGame() {
     setTimeout(endGame, gameTime * 1000);
 }
 
-// Move basket left & right
-function moveBasket(event) {
-    let left = parseInt(window.getComputedStyle(basket).left);
-    if (event.key === "ArrowLeft" && left > 10) {
-        basket.style.left = left - 20 + "px";
-    } else if (event.key === "ArrowRight" && left < 330) {
-        basket.style.left = left + 20 + "px";
+// Move basket with touch
+function moveBasketTouch(event) {
+    event.preventDefault(); // Prevents scrolling while playing
+    let touchX = event.touches[0].clientX; // Get the X position of the touch
+    let basketLeft = touchX - basket.offsetWidth / 2; // Center the basket on touch
+
+    // Constrain the basket within the game area
+    if (basketLeft < 0) {
+        basketLeft = 0;
+    } else if (basketLeft > 370) {
+        basketLeft = 370;
     }
+
+    basket.style.left = basketLeft + "px";
 }
 
 // Drop a gift from a random position
@@ -213,9 +219,10 @@ function dropGift() {
 function endGame() {
     gameActive = false;
     clearInterval(gameInterval);
-    document.removeEventListener("keydown", moveBasket);
+    document.removeEventListener("touchmove", moveBasketTouch);
     alert("🎉 Game Over! Final Score: " + score);
 }
+
 document.querySelectorAll('.navbar a').forEach(anchor => {
     anchor.addEventListener('click', function (event) {
         event.preventDefault();
@@ -237,3 +244,17 @@ function toggleMusic() {
     }
     isPlaying = !isPlaying; // Toggle the play/pause state
 }
+// Toggle the navbar visibility on small screens
+function toggleNavbar() {
+    const navbarMenu = document.getElementById("navbarMenu");
+    navbarMenu.style.display = navbarMenu.style.display === "block" ? "none" : "block";
+}
+
+// Close the navbar when a nav item is clicked (on small screens)
+function closeNavbar() {
+    const navbarMenu = document.getElementById("navbarMenu");
+    navbarMenu.style.display = "none";
+}
+
+// Add event listener for the hamburger icon to toggle the navbar
+document.getElementById("navbarToggle").addEventListener("click", toggleNavbar);
