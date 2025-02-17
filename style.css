@@ -1,0 +1,448 @@
+body {
+    text-align: center;
+    background-color: #ffebcd;
+    font-family: Arial, sans-serif;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.birthday-card {
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.birthday-card:hover {
+    transform: scale(1.1);
+}
+
+.click-message {
+    font-size: 18px;
+    color: #d63384;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.slideshow-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d63384;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from cover to contain */
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.game-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.magic-item {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.magic-item:hover {
+    transform: scale(1.2);
+}
+
+#surprise-message {
+    font-size: 18px;
+    color: #d63384;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.balloon-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 50px;
+    height: 70px;
+    background: red;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+.confetti-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.fireworks-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: yellow;
+    border-radius: 50%;
+    opacity: 1;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+.cake-container {
+    text-align: center;
+    margin-top: 30px;
+    background-color: white; /* White background for the container */
+    padding: 20px; /* Optional: Add some padding for better spacing */
+    border-radius: 10px; /* Optional: Round the corners of the container */
+    display: inline-block; /* Make the container shrink-wrap around the content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    position: relative; /* Make the container a positioning context for the candles */
+    overflow: hidden; /* Ensure that no content goes outside the container */
+}
+
+
+
+.candles {
+    position: absolute;
+    top: 0; /* Set this to 0 or adjust to fit the top of the cake */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    z-index: 1; /* Ensure candles are above the cake */
+}
+
+.candle {
+    width: 60px;
+    height: 35px; /* Set the candle height to look like a typical candle */
+    background-color: #f1c40f; /* Add a color for candles */
+    transition: opacity 1s ease-in-out;
+}
+
+.blow-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.blow-button:hover {
+    background: #d63384;
+}
+
+#wish-message {
+    font-size: 18px;
+    color: #ff4081;
+    font-weight: bold;
+    margin-top: 15px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.play-song-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.play-song-button:hover {
+    background: #388E3C;
+}
+
+
+
+.game-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#game-area {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: lightblue;
+    border: 2px solid #000;
+    margin: auto;
+    overflow: hidden;
+}
+
+#basket {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 40px;
+    background-color: brown;
+    border-radius: 10px;
+}
+
+.gift {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.game-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.game-button:hover {
+    background: #e68900;
+}
+
+#score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff9800;
+    margin-top: 10px;
+}
+/* Basic styling for the navbar */
+.navbar {
+    background-color: #ff4081; /* Birthday-themed background color */
+    padding: 10px;
+    text-align: center;
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns the navbar to the top of the page */
+    left: 0; /* Aligns the navbar to the left edge */
+    width: 100%; /* Ensures the navbar spans the full width */
+    z-index: 1000; /* Ensures the navbar stays on top of other elements */
+}
+
+/* Navbar list styling */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Hover effect for navbar links */
+.navbar a:hover {
+    background-color: #d63384;
+}
+
+/* Media query for smaller screens (mobile devices) */
+@media screen and (max-width: 768px) {
+    .navbar ul {
+        display: block;
+        text-align: left;
+    }
+
+    .navbar li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 12px;
+    }
+}
+
+/* Media query for extra small screens (very small devices) */
+@media screen and (max-width: 480px) {
+    .navbar a {
+        font-size: 16px; /* Adjust font size for very small devices */
+    }
+}
+
+/* Adding a top margin to the page content to prevent it from being hidden behind the navbar */
+body {
+    margin-top: 60px; /* Adjust this value based on your navbar height */
+}
+
+
+/* Space out sections so they don't overlap */
+#card-section, 
+#slideshow-section, 
+#magic-game-section, 
+#cake-section, 
+#catch-game-section {
+    padding-top: 60px;
+    margin-bottom: 30px;
+}
+.play-pause-button {
+    font-size: 24px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun, playful font */
+    background-color: #f9c74f; /* Bright yellow for a festive look */
+    color: #fff;
+    border: 2px solid #ff6347; /* A bright orange-red border to give it a lively feel */
+    padding: 12px 20px;
+    border-radius: 25px; /* Rounded edges for a soft look */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Make text bold and big for emphasis */
+    font-weight: bold; /* Make the button text stand out */
+}
+
+/* Button hover effects */
+.play-pause-button:hover {
+    background-color: #ff6347; /* Switch to a bright red when hovered */
+    color: #fff;
+    border-color: #f9c74f; /* Swap border color to match the background */
+    transform: scale(1.1); /* Make it slightly bigger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly bigger shadow on hover */
+}
+
+/* Active state for the button */
+.play-pause-button:active {
+    transform: scale(1.05); /* Slight shrink effect when clicked */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Smaller shadow for the click effect */
+}
+
+/* For extra fun: add some confetti-like animations */
+.play-pause-button:after {
+    content: "🎉";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    font-size: 36px;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.play-pause-button:hover:after {
+    opacity: 1;
+    top: -16px;
+    right: -16px;
+    animation: confetti 1s ease-in-out infinite;
+}
+
+/* Confetti animation effect */
+@keyframes confetti {
+    0% {
+        transform: rotate(45deg) translateY(0) translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(45deg) translateY(-20px) translateX(10px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(45deg) translateY(0) translateX(0);
+        opacity: 1;
+    }
+}

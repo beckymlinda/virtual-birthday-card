@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Birthday Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🎈 Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#card-section">🎉 Birthday Card</a></li>
+            <li><a href="#slideshow-section">📸 Slideshow</a></li>
+            <li><a href="#magic-game-section">🎩 Magical Surprises</a></li>
+            <li><a href="#cake-section">🎂 Blow the Candles</a></li>
+            <li><a href="#catch-game-section">🎮 Catch the Gifts</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🎵 Birthday Card Section -->
+<div id="card-section">
+    <div class="card-container">
+        <img src="assets/birthday-card.jpeg" alt="Birthday Card" class="birthday-card">
+        <p class="click-message">Click to open & play music!</p>
+        <!-- Play/Pause Button -->
+        <button class="play-pause-button" id="playPauseButton" onclick="toggleMusic()">🎶play</button>
+    </div>
+    <audio id="birthdaySong" src="assets/happy-birthday.mpeg"></audio>
+</div>
+
+
+    <!-- 📸 Slideshow Section -->
+    <div id="slideshow-section">
+        <div class="slideshow-container">
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <img id="slideshow" src="assets/images/m1.jpeg" alt="Slideshow Image">
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- 🎩 Magical Surprise Game -->
+    <div id="magic-game-section">
+        <div class="game-container">
+            <h2>🎩 Click on a magical item to reveal a surprise! 🎁</h2>
+            <div class="items">
+                <img src="assets/images/magic-box.png" class="magic-item" onclick="showSurprise(0)" alt="Magic Box">
+                <img src="assets/images/unicorn.png" class="magic-item" onclick="showSurprise(1)" alt="Unicorn">
+                <img src="assets/images/balloons.png" class="magic-item" onclick="showSurprise(2)" alt="Balloons">
+                <img src="assets/images/treasure-chest.png" class="magic-item" onclick="showSurprise(3)" alt="Treasure Chest">
+            </div>
+            <p id="surprise-message">Click an item to see what happens!</p>
+        </div>
+    </div>
+
+    <!-- 🎂 Blow the Candles Section -->
+    <div id="cake-section">
+        <div class="cake-container">
+            <h2>🎂 Blow out the candles to make a wish! 🎉</h2>
+            <div class="cake">
+                <div class="candles">
+                    <img src="assets/images/candle-lit.png" class="candle" id="candle1">
+                    <img src="assets/images/candle-lit.png" class="candle" id="candle2">
+                    <img src="assets/images/candle-lit.png" class="candle" id="candle3">
+                </div>
+            </div>
+            <button onclick="blowCandles()" class="blow-button">Blow Candles 🎤</button>
+            <p id="wish-message"></p>
+    
+            <!-- Birthday song audio -->
+            <audio id="birthday-Song" src="assets/music/birthday-song.mp3"></audio>
+        </div>
+    </div>
+    
+
+    <!-- 🎁 Catch the Gifts Game -->
+    <div id="catch-game-section">
+        <div class="game-container">
+            <h2>🎁 Catch the Birthday Gifts! 🎮</h2>
+            <p>Move the basket with ⬅️ ➡️ keys!</p>
+            <div id="game-area">
+                <div id="basket"></div>
+            </div>
+            <p id="score">Score: 0</p>
+            <button onclick="startGame()" class="game-button">Start Game</button>
+        </div>
+    </div>
+
+    <!-- 🎇 Special Effects Containers -->
+    <div class="balloon-container"></div>
+    <div class="confetti-container"></div>
+    <div class="fireworks-container"></div>
+
+    <!-- 🔊 Sound Effects -->
+    <audio id="catch-sound" src="assets/music/catch.wav"></audio>
+    <audio id="miss-sound" src="assets/music/miss.wav"></audio>
+
+    <!-- 📜 JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>
